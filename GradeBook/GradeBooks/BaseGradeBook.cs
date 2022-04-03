@@ -113,7 +113,7 @@ namespace GradeBook.GradeBooks
 
         public virtual double GetGPA(char letterGrade, StudentType studentType)
         {
-            int bonus = (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled) ? 1 : 0;
+            int bonus = (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled) && IsWeighted ? 1 : 0;
             switch (letterGrade)
             {
                 case 'A':
@@ -133,7 +133,7 @@ namespace GradeBook.GradeBooks
                     return 0 + bonus;
             }
             return 0;
-            return 0 + bonus;
+          
         }
 
         public virtual void CalculateStatistics()
